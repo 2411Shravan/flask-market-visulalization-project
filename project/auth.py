@@ -7,6 +7,11 @@ from flask import flash
 from werkzeug.security import generate_password_hash
 from . import db
 from flask import redirect
+from werkzeug.security import check_password_hash
+from flask_login import login_user
+from flask_login import logout_user
+from flask_login import current_user
+from flask_login import login_required
 
 
 auth=Blueprint('auth',__name__)
@@ -53,15 +58,25 @@ def signup():
 
 
 
-
-
-
-
-
-
-
-
 @auth.route('/login',methods=['GET','POST'])
 def login():
+
+    if request.method == 'POST':
+        email=request.form['email']
+        password=request.form['password']
+        user=User.query.filter_by(email=email).first()
+
+        if user:
+            if check_password_hash(user.password,password):
+                flash('Successfully Logged-In',category='success')
+                login_user(user,remember=True)
+                return redirect('/')
+
+            else:
+                flash('Incorrect Password',category='danger')
+
+        else:
+            flash('There is no account with this e-mail address',category='danger')
+
     return render_template('login.html')
 
