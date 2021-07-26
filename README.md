@@ -3,7 +3,7 @@
 These are the files of share market values visualizing python flask application
 
 
-pip install flask,
+#pip install flask,
 pip install flask-sqlalchemy,
 pip install flash,
 pip install flask_login,
