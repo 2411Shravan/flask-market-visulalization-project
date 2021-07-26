@@ -7,5 +7,5 @@ view=Blueprint('view',__name__)
 
 
 @view.route('/')
-def index():
-    return "Hello world"
+def home():
+    return render_template('base.html')
