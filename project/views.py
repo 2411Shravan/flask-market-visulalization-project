@@ -9,3 +9,11 @@ view=Blueprint('view',__name__)
 @view.route('/')
 def home():
     return render_template('base.html')
+
+@view.route('/about')
+def about():
+    return 'about us'
+
+@view.route('/contact')
+def contact():
+    return 'contact us'
