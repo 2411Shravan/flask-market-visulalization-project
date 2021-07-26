@@ -8,44 +8,72 @@
 
 
 {%block content%}
-<div class="container mt-5 mb-5 beg">
-    <div class="container">
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+        {%if messages %}
+            {%for category,message in messages%}
+                {%if category == "warning" %}
+                <div class="alert text-center alert-warning  alert-dismissable fade show" role="alert">
+                    
+                        {{ message }}
+                    
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden ="true">&times;</span>
+                    </button>
+                </div>
+                {%else%}
+                <div class="alert text-center alert-success alert-dismissable fade show" role="alert">
+                    
+                        {{ message }}
+                    
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden ="true">&times;</span>
+                    </button>
+                </div>
+                {%endif%}
+            {%endfor%}
+        {%endif%}
+    {% endwith %}
+
+
+<div class="container bg-primary mt-5 mb-5 beg">
+    <div class="container" style="padding-top: 25px; padding-bottom: 25px">
         <div class="card">
             <div class="card-body">
 <form method="post">
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control"  placeholder="Enter email" required>
+      <input type="email" name='email' class="form-control"  placeholder="Enter email" required>
      
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Full Name</label>
-        <input type="text" class="form-control"  placeholder="Enter your full name" required>
+        <input type="text" name='name' class="form-control"  placeholder="Enter your full name" required>
        
       </div>
 
       <div class="form-group">
         <label for="exampleInputEmail1">User-Name</label>
-        <input type="text" class="form-control"  placeholder="Take a good username" required>
+        <input type="text" name='username' class="form-control"  placeholder="Take a good username" required>
        
       </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Password (atleast 7 charcters)</label>
-      <input type="password" class="form-control" placeholder="Password" required>
+      <input type="password" name='password' class="form-control" placeholder="Password" required>
     </div>
 
     <div class="form-group">
         <label for="exampleInputPassword1">Confirm-Password</label>
-        <input type="password" class="form-control" placeholder="Password" required>
+        <input type="password" name='confirmPassword' class="form-control" placeholder="Confirm Password" required>
       </div>
 
 
     <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">I'll okay with all privacy policies.</label>
+      <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+      <label class="form-check-label" for="exampleCheck1">I am okay with all privacy policies.</label>
     </div>
     <div class="text-center mt-3">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-dark text-light w-100">Submit</button>
 
     </div>
   </form>
@@ -54,6 +82,14 @@
 </div>
 </div>
 
+
+{%for data in arr_data %}
+ 
+    {{data['name']}}
+    {{data['u_name']}}
+
+    {{data['pwd']}}
+{%endfor%}
 <style>
     .beg{
         width:40%;
