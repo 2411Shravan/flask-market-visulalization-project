@@ -8,7 +8,7 @@ view=Blueprint('view',__name__)
 
 @view.route('/')
 def home():
-    return render_template('base.html')
+    return render_template('home.html')
 
 @view.route('/about')
 def about():
