@@ -1,9 +1,11 @@
 {%extends 'base.html'%}
 
 
+
 {%block title%}
-    User-Login
+    Home
 {%endblock%}
+
 
 
 
@@ -36,54 +38,7 @@
         {%endif%}
     {% endwith %}
 
-
-<div class="container mt-5 mb-5 beg">
     <div class="container">
-        <div class="card">
-            <div class="card-body">
-<form method="post">
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" name='email' class="form-control"  placeholder="Enter email" required>
-     
+        <h1>You are now in contact section</h1>
     </div>
-
-      
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" name='password' class="form-control" placeholder="Password" required>
-    </div>
-
-    <div class="text-center">
-        <button type="submit" class="btn btn-dark text-light w-100">Submit</button>
-
-    </div>
-  </form>
-</div>
-</div>
-</div>
-</div>
-
-<style>
-    .beg{
-        width:40%;
-    }
-    @media(min-width:721px )and (max-width:1000px){
-        .beg{
-        width:60%;
-    }
-}
-    @media(min-width:450px )and (max-width:720px){
-        .beg{
-        width:90%;
-    }
-}
-    @media(max-width:450px){
-        .beg{
-        width:100%;
-    }
-    }
-</style>
-   
 {%endblock%}
-
