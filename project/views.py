@@ -46,7 +46,7 @@ def mutualfunds():
 def currencies():
     return render_template('currency.html',user=current_user)
 
-@view.route('/user-profile')
+@view.route('/user-profile/<string:name>')
 @login_required
-def userprofile():
-    return render_template('userprofile.html',user=current_user)
+def userprofile(name):
+    return render_template('userprofile.html',user=current_user,name=name)
