@@ -43,16 +43,18 @@
           <div class="col">
             <div class="card">
                 <div class="card-body">
-                    Notes
+                    <h4>Notes</h4>
                     <hr>
+                    <h6>Make your notes/todos here.</h6>
                 </div>
             </div>
           </div>
           <div class="col">
             <div class="card">
                 <div class="card-body">
-                    Mutual-Funds
+                    <h4>Mutual-Funds</h4>
                     <hr>
+                    <h6>Store your required mutual-funds lists and datas.</h6>
                 </div>
             </div>
           </div>
@@ -61,24 +63,27 @@
           <div class="col">
             <div class="card">
                 <div class="card-body">
-                    Currencies
+                   <h4>Currencies</h4> 
                     <hr>
+                    <h6>Store your required global currency lists and datas.</h6>
                 </div>
             </div>
           </div>
           <div class="col">
             <div class="card">
                 <div class="card-body">
-                    Shares
+                    <h4>Shares</h4>
                     <hr>
+                    <h6>Save your required Shares information and data-figures.</h6>
                 </div>
             </div>
           </div>
           <div class="col">
             <div class="card">
                 <div class="card-body">
-                    Crypto
+                   <h4>Crypto</h4> 
                     <hr>
+                    <h6>Save your needed/required Crypto figures.</h6>
                 </div>
             </div>
           </div>
@@ -88,13 +93,33 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        Reset your credentials
+                        <a href="/user-profile/{{user.id}}/reset-profile"><h4 class="text-dark"> Reset credentials. </h4></a>
                         <hr>
+                        <h6>
+                            Reset your username,email,password and etc..
+                        </h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h4>Delete My Account.</h4>
+                        <hr>
+                        <h6>
+                            Delete account including all saved info.
+                        </h6>
                     </div>
                 </div>
             </div>
             
           </div>
       </div>
-    
+    <style>
+        .card{
+            border: 1.5px solid grey;
+        }
+        
+    </style>
 {%endblock%}

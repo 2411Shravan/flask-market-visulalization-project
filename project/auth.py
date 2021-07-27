@@ -87,3 +87,69 @@ def login():
 def logout():
     logout_user()
     return redirect('/login')
+
+
+@auth.route('/user-profile/<int:id>/reset-profile',methods=['GET', 'POST'])
+@login_required
+def resetprofile(id):
+
+    if request.method == 'POST':
+        email = request.form['email']
+        
+        user_name=request.form['username']
+        password = request.form['password']
+        confirmPassword=request.form['confirmPassword']
+
+        user = User.query.get_or_404(id)
+
+        if(len(email)<5):
+            flash('Please entera avalid e-mail info',category='warning')
+            return redirect('auth.resetprofile')
+        
+        elif(len(password)<7):
+            flash('Please enter a stronger password',category='warning')
+            return redirect('auth.resetprofile')
+
+        elif(password!=confirmPassword):
+            flash('Please make sure that password and confirm password are same',category='warning')
+            return redirect('auth.resetprofile')
+
+        else:
+            user.email=email
+            user.username=user_name
+            user.password=generate_password_hash(password,method='sha256')
+
+
+            try:
+                db.session.commit()
+                flash("User updated successfully",category="success")
+                return redirect('/logout')
+            
+
+            except:
+                flash("Error ! ",category="Danger")
+
+
+
+            
+
+
+        print(user_name)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    return render_template('resetprofile.html',user=current_user)

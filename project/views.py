@@ -49,4 +49,6 @@ def currencies():
 @view.route('/user-profile/<string:name>')
 @login_required
 def userprofile(name):
-    return render_template('userprofile.html',user=current_user,name=name)
+    return render_template('userprofile.html',user=current_user)
+
+
