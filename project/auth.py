@@ -53,7 +53,7 @@ def signup():
             return redirect('/login')
 
 
-    return render_template('signup.html',arr_data=arr_data)
+    return render_template('signup.html',user=current_user)
 
 
 
@@ -78,5 +78,12 @@ def login():
         else:
             flash('There is no account with this e-mail address',category='danger')
 
-    return render_template('login.html')
+    return render_template('login.html',user=current_user)
 
+
+
+@auth.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect('/login')
