@@ -12,3 +12,14 @@ crypto_curr = Blueprint('crypto_curr',__name__)
 @login_required
 def crypto():
     return render_template('exchange.html',user=current_user)
+
+@crypto_curr.route('/crypto/globalstats/')
+@login_required
+def globalstats():
+    return render_template('globalstats.html',user=current_user)
+
+@crypto_curr.route('/crypto/market/')
+@login_required
+def cryptomarket():
+    return render_template('cryptomarket.html',user=current_user)
+
