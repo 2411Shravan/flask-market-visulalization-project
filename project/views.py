@@ -5,6 +5,8 @@ from flask import Blueprint
 from flask_login import login_required
 from flask_login import current_user
 
+
+
 view=Blueprint('view',__name__)
 
 

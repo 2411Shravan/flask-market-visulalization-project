@@ -112,7 +112,7 @@ def resetprofile(id):
 
         elif(password!=confirmPassword):
             flash('Please make sure that password and confirm password are same',category='warning')
-            return redirect('auth.resetprofile')
+            return redirect('resetprofile')
 
         else:
             user.email=email
