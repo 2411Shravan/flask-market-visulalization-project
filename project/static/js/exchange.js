@@ -1,9 +1,10 @@
 
 const att=document.getElementById('attach');
-
+const loading = document.getElementById('spinner');
 
 
 async function getExchanges(){
+    loading.style.display="block";
    const data = await fetch("https://coinranking1.p.rapidapi.com/exchanges", {
 	"method": "GET",
 	"headers": {
@@ -21,6 +22,7 @@ function showexchange(response){
     const{exchanges}=data;
     console.log(exchanges);
     const divRow = document.createElement('div');
+    loading.style.display="none";
     exchanges.forEach(exchange =>{
         // console.log(exchange.id);
         // console.log(exchange.uuid);
@@ -36,11 +38,11 @@ function showexchange(response){
                 <tr>
                     <th scope="row">${exchange.rank}</th>
                     <td >${exchange.id}</td>
-                    <td ><a href="${exchange.websiteUrl}">${exchange.name}</a></td>
+                    <td ><a href="${exchange.websiteUrl}">${exchange.name}</a> <img src="${exchange.iconUrl}" height="30" width="30"/></td>
 
-                    <td>${exchange.uuid}</td>
+                    <td >${exchange.uuid}</td>
                   </tr>
-        
+                  
         
         `;
     });
