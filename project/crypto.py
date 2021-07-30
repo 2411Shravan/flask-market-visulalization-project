@@ -23,3 +23,22 @@ def globalstats():
 def cryptomarket():
     return render_template('cryptomarket.html',user=current_user)
 
+
+@crypto_curr.route('/crypto/intraday/five-minutes-delay/')
+@login_required
+def intradayData():
+    return render_template('intraday.html',user=current_user)
+
+
+@crypto_curr.route('/crypto/country-codes/')
+@login_required
+def countrycodes():
+    return render_template('countrycode.html',user=current_user)
+
+
+@crypto_curr.route('/crypto/crypto-codes/')
+@login_required
+def cryptocodes():
+    return render_template('cryptocode.html',user=current_user)
+
+
