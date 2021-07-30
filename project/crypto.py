@@ -42,3 +42,12 @@ def cryptocodes():
     return render_template('cryptocode.html',user=current_user)
 
 
+
+
+
+@crypto_curr.route('/crypto/daily/open-close')
+@login_required
+def openclose():
+    return render_template('openclose.html',user=current_user)
+
+
