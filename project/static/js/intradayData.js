@@ -13,7 +13,7 @@ request.addEventListener('submit', (e)=>{
     CV=currencyData.value;
     CD=coinData.value;
     getIntraData();
-})
+});
 
 const dates=[];
 const high=[];
@@ -82,114 +82,116 @@ function showIntraData(responseResults){
 
 
     // console.log(datesFinal);
+
+    
+var options = {
+  chart: {
+    type: 'area'
+  },
+  series: [{
+    name: 'open',
+    data: open
+  },
+  {
+      name: 'close',
+      data: close
+    }],
+  xaxis: {
+    categories:dates,
+    labels:{
+      show:false
+    }
+  },
+  yaxis: {
+      opposite: true,
+      show:false
+    },
+    stacked: false,
+          height: 350,
+          zoom: {
+            type: 'x',
+            enabled: true,
+            autoScaleYaxis: true
+          },legend: {
+              position: 'top'
+            }
 }
 
+var chart = new ApexCharts(document.querySelector("#chart"), options);
 
-var options = {
-    chart: {
-      type: 'area'
-    },
-    series: [{
-      name: 'open',
-      data: open
-    },
-    {
-        name: 'close',
-        data: close
-      }],
-    xaxis: {
-      categories:dates,
-      labels:{
-        show:false
-      }
-    },
-    yaxis: {
-        opposite: true,
-        show:false
-      },
-      stacked: false,
-            height: 350,
-            zoom: {
-              type: 'x',
-              enabled: true,
-              autoScaleYaxis: true
-            },legend: {
-                position: 'top'
-              }
-  }
-  
-  var chart = new ApexCharts(document.querySelector("#chart"), options);
-  
-  chart.render();
+chart.render();
 
 
-  var options1 = {
-    chart: {
-      type: 'area'
-    },
-    series: [{
-      name: 'high',
-      data: high
-    },
-    {
-        name: 'low',
-        data: close
-      }],
-    xaxis: {
-      categories:dates,
-      labels:{
-        show:false
-      }
-    },
-    grid: {
-        position: 'front'
-      },
-    yaxis: [{
-        opposite: true,
-        show:false,
-        label:{
-            style: {
-                color: '#e45rt5',
-                background: '#00E396'
-              
-        }
-      },
-      }],
-      stacked: false,
-            height: 350,
-            zoom: {
-              type: 'x',
-              enabled: true,
-              autoScaleYaxis: true
-            },legend: {
-                position: 'top'
-              }
-  }
-  
-  var chart = new ApexCharts(document.querySelector("#chart1"), options1);
-  
-  chart.render();
-
-
-  var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: dates,
-        datasets: [{
-            label: 'Volume',
-            data: volume,
-            color:'#e75480',
-            backgroundColor:'#e75480',
-            borderColor:'#e75480'
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true,
-                display:false
-            }
-        }
+var options1 = {
+  chart: {
+    type: 'area'
+  },
+  series: [{
+    name: 'high',
+    data: high
+  },
+  {
+      name: 'low',
+      data: close
+    }],
+  xaxis: {
+    categories:dates,
+    labels:{
+      show:false
     }
+  },
+  grid: {
+      position: 'front'
+    },
+  yaxis: [{
+      opposite: true,
+      show:false,
+      label:{
+          style: {
+              color: '#e45rt5',
+              background: '#00E396'
+            
+      }
+    },
+    }],
+    stacked: false,
+          height: 350,
+          zoom: {
+            type: 'x',
+            enabled: true,
+            autoScaleYaxis: true
+          },legend: {
+              position: 'top'
+            }
+}
+
+var chart = new ApexCharts(document.querySelector("#chart1"), options1);
+
+chart.render();
+
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+      labels: dates,
+      datasets: [{
+          label: 'Volume',
+          data: volume,
+          color:'#e75480',
+          backgroundColor:'#e75480',
+          borderColor:'#e75480'
+      }]
+  },
+  options: {
+      scales: {
+          y: {
+              beginAtZero: true,
+              display:false
+          }
+      }
+  }
 });
+
+}
+
