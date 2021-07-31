@@ -1,0 +1,87 @@
+{%extends 'base.html'%}
+
+
+
+{%block title%}
+    Coin - History
+{%endblock%}
+
+
+
+
+{%block content%}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+        {%if messages %}
+            {%for category,message in messages%}
+                {%if category == "warning" %}
+                <div class="alert text-center alert-warning  alert-dismissable fade show" role="alert">
+                    
+                        {{ message }}
+                   
+                    
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden ="true">&times;</span>
+                    </button>
+                </div>
+                {%else%}
+                <div class="alert text-center alert-success  flex-end alert-dismissable fade show" role="alert">
+                    
+                        {{ message }}
+                   
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden ="true">&times;</span>
+                    </button>
+                </div>
+                {%endif%}
+            {%endfor%}
+        {%endif%}
+    {% endwith %}
+
+   
+    <div class="container history">
+        <form id="getHistory" method='post'>
+            <div class="card">
+                <div class="card-body">
+            <div class="mb-2">
+                <label class="form-label">Currency</label>
+                <input type="text" class="form-control" id="coin" placeholder="Enter CoinCode (for ex:1,2,3 etc)" required>
+            </div>
+
+            
+            <button type="submit" class="btn btn-dark w-100">Get Data</button>
+            </div>
+        </div>
+        </form>
+        </div>
+
+<div class="container">
+    <div id="chart"></div>
+</div>
+
+<style>
+    #chart {
+  max-width: 800px;
+  margin: 35px auto;
+}
+.history{
+        width:50%;
+        margin-top:100px;
+    }
+    .card{
+        border: 2px solid rgba(128, 128, 128, 0.575);
+    }
+
+    @media(min-width:550px) and (max-width:850px){
+        .history{
+        width:70%;
+    }
+}
+    @media(max-width:549px){
+        .history{
+        width:80%;
+    }
+    }
+
+</style>
+{%endblock%}
