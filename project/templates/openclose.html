@@ -54,15 +54,39 @@
         </form>
         </div>
 
-       
+        
             <div class="container">
-                <div class="row">
-                  <div class="col"><div id="chart"></div></div>
-                  <div class="col"><div id="chart1"></div></div>
-                  <div class="w-100"></div>
-                  <div class="col"><div id="chart2"></div></div>
-                  <div class="col"><div id="chart3"></div></div>
-                </div>
+                    <h4 class="text-center">Open and Close</h4>
+
+                       <div id="chart8"></div>
+
+                <h4 class="text-center">Open Trades</h4>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-6" ><div id="chart4"></div></div>
+                        <div class="col-sm-6"><div id="chart5"></div></div>
+                      </div>
+            
+                      <div class="row">
+                        <div class="col-sm-6" ><div id="chart6"></div></div>
+                        <div class="col-sm-6"><div id="chart7"></div></div>
+                      </div>
+
+
+                    <h4 class="text-center">Closing Trades</h4>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-6" ><div id="chart"></div></div>
+                        <div class="col-sm-6"><div id="chart1"></div></div>
+                      </div>
+            
+                      <div class="row">
+                        <div class="col-sm-6" ><div id="chart2"></div></div>
+                        <div class="col-sm-6"><div id="chart3"></div></div>
+                      </div>
+
+
+                      
               </div>
             
             
@@ -73,6 +97,22 @@
         
 
         <style>
+            .ried{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .raw{
+                    display:flex;
+                    flex-direction:row;
+                }
+            @media(max-width:850px){
+                .raw{
+                    display:flex;
+                    flex-direction:column;
+                }
+            }
+            
                 .cryptoIntra{
         width:50%;
         margin-top:150px;
