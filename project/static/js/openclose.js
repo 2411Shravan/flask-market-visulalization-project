@@ -8,8 +8,21 @@ const x =[];
 const p=[];
 const s=[];
 const t=[];
+
+
+const xo =[];
+const po=[];
+const so=[];
+const to=[];
+
+const openclose =['open','close'];
+const ops=[];
+
 var xaxes="";
 const xdata=[];
+const xopendata=[];
+
+
 requestForm.addEventListener('submit', (e)=>{
     e.preventDefault();
     
@@ -48,8 +61,10 @@ function yesterdayTime(){
 
 
 function op(rpData){
-    const{open,close,closingTrades,symbol}=rpData;
+    const{open,close,closingTrades,openTrades,symbol}=rpData;
     console.log(open,close);
+    ops.push(open);
+    ops.push(close);
     xaxes= symbol;
     closingTrades.forEach(trade=>{
         console.log(trade);
@@ -58,6 +73,15 @@ function op(rpData){
         s.push(trade['s']);
         t.push(trade['t']);
     })
+
+
+    openTrades.forEach(trade=>{
+      console.log(trade);
+      xo.push(trade['x']);
+      po.push(trade['p']);
+      so.push(trade['s']);
+      to.push(trade['t']);
+  })
 
     for(var i=0;i<closingTrades.length;i++) {
         xdata.push(i+1);
@@ -237,7 +261,219 @@ function op(rpData){
       var chart = new ApexCharts(document.querySelector("#chart3"), options3);
       chart.render();
 
+      var options4 = {
+        series: [{
+        name: "p",
+        data: po
+      }],
+        chart: {
+        type: 'area',
+        height: 350,
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: 'straight'
+      },
+      
+      title: {
+        text: 'Crypto Market - P',
+        align: 'left'
+      },
+      subtitle: {
+        text: 'Market Open p rate',
+        align: 'left'
+      },
+      labels: xdata,
+      xaxis: {
+        
+      },
+      yaxis: {
+        opposite: true
+      },
+      legend: {
+        horizontalAlign: 'left'
+      }
+      };
+    
+      var chart = new ApexCharts(document.querySelector("#chart4"), options4);
+      chart.render();
 
+      var options5 = {
+        series: [{
+        name: "x",
+        data: xo
+      }],
+        chart: {
+        type: 'area',
+        height: 350,
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: 'straight'
+      },
+      
+      title: {
+        text: 'Crypto Market - X',
+        align: 'left'
+      },
+      subtitle: {
+        text: 'Market Open x rate',
+        align: 'left'
+      },
+      labels: xdata,
+      xaxis: {
+        
+      },
+      yaxis: {
+        opposite: true
+      },
+      legend: {
+        horizontalAlign: 'left'
+      }
+      };
+    
+      var chart = new ApexCharts(document.querySelector("#chart5"), options5);
+      chart.render();
+
+
+      var options6 = {
+        series: [{
+        name: "s",
+        data: so
+      }],
+        chart: {
+        type: 'area',
+        height: 350,
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: 'straight'
+      },
+      
+      title: {
+        text: 'Crypto Market - S',
+        align: 'left'
+      },
+      subtitle: {
+        text: 'Market Open s rate',
+        align: 'left'
+      },
+      labels: xdata,
+      xaxis: {
+        
+      },
+      yaxis: {
+        opposite: true
+      },
+      legend: {
+        horizontalAlign: 'left'
+      }
+      };
+    
+      var chart = new ApexCharts(document.querySelector("#chart6"), options6);
+      chart.render();
+
+
+      var options7 = {
+        series: [{
+        name: "t",
+        data: to
+      }],
+        chart: {
+        type: 'area',
+        height: 350,
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: 'straight'
+      },
+      
+      title: {
+        text: 'Crypto Market - T',
+        align: 'left'
+      },
+      subtitle: {
+        text: 'Market Open t rate',
+        align: 'left'
+      },
+      labels: xdata,
+      xaxis: {
+        
+      },
+      yaxis: {
+        opposite: true
+      },
+      legend: {
+        horizontalAlign: 'left'
+      }
+      };
+    
+      var chart = new ApexCharts(document.querySelector("#chart7"), options7);
+      chart.render()
+
+
+      var options8 = {
+        series: [{
+        name: "open close",
+        data: ops
+      }],
+        chart: {
+        type: 'area',
+        height: 350,
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: 'straight'
+      },
+      
+      title: {
+        text: 'Crypto Market Open and Close',
+        align: 'left'
+      },
+      subtitle: {
+        text: 'Market Open t rate',
+        align: 'left'
+      },
+      labels: openclose,
+      xaxis: {
+        
+      },
+      yaxis: {
+        opposite: true
+      },
+      legend: {
+        horizontalAlign: 'left'
+      }
+      };
+    
+      var chart = new ApexCharts(document.querySelector("#chart8"), options8);
+      chart.render()
+      
       
 }
 
