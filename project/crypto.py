@@ -71,3 +71,21 @@ def history():
 
     
     return render_template('coinhistory.html',user=current_user)
+
+@crypto_curr.route('/crypto/allcoins/',methods=['GET','POST'])
+@login_required
+def allcoins():
+    
+    
+    # num=1
+    # url = "https://coinranking1.p.rapidapi.com/coin/"+str(num)+"/history/7d"
+
+    # headers = {
+    #     'x-rapidapi-key': "ba2786a8fbmshc8e2bb00a0cdfcfp192bedjsne79d060f20c2",
+    #     'x-rapidapi-host': "coinranking1.p.rapidapi.com"
+    #     }
+
+    # response = requests.request("GET", url, headers=headers)
+
+    
+    return render_template('coins.html',user=current_user)
