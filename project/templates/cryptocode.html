@@ -10,7 +10,36 @@
 
 
 {%block content%}
+
 <body onload='cryptoData()'>
+  
+{% with messages = get_flashed_messages(with_categories=true) %}
+{%if messages %}
+    {%for category,message in messages%}
+        {%if category == "warning" %}
+        <div class="alert text-center alert-warning  alert-dismissable fade show" role="alert">
+            
+                {{ message }}
+           
+            
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden ="true">&times;</span>
+            </button>
+        </div>
+        {%else%}
+        <div class="alert text-center alert-success  flex-end alert-dismissable fade show" role="alert">
+            
+                {{ message }}
+           
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden ="true">&times;</span>
+            </button>
+        </div>
+        {%endif%}
+    {%endfor%}
+{%endif%}
+{% endwith %}
+
     <div class="sk-cube-grid text-center" id="cube">
         <div class="sk-cube sk-cube1"></div>
         <div class="sk-cube sk-cube2"></div>

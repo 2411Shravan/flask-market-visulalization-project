@@ -119,16 +119,17 @@ def singlecoin():
 @login_required
 def groupedData():
     
-    
-    # num=1
-    # url = "https://coinranking1.p.rapidapi.com/coin/"+str(num)+"/history/7d"
-
-    # headers = {
-    #     'x-rapidapi-key': "ba2786a8fbmshc8e2bb00a0cdfcfp192bedjsne79d060f20c2",
-    #     'x-rapidapi-host': "coinranking1.p.rapidapi.com"
-    #     }
-
-    # response = requests.request("GET", url, headers=headers)
-
-    
     return render_template('grouped.html',user=current_user)
+
+@crypto_curr.route('/crypto/close-data',methods=['GET','POST'])
+@login_required
+def closeData():
+    
+    return render_template('prev.html',user=current_user)
+
+
+@crypto_curr.route('/crypto/news',methods=['GET','POST'])
+@login_required
+def cryptoNews():
+    
+    return render_template('cryptonews.html',user=current_user)
