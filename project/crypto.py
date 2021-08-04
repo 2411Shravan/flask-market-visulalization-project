@@ -89,3 +89,46 @@ def allcoins():
 
     
     return render_template('coins.html',user=current_user)
+
+    
+
+
+@crypto_curr.route('/crypto/single-coin/',methods=['GET','POST'])
+@login_required
+def singlecoin():
+    
+    
+    # num=1
+    # url = "https://coinranking1.p.rapidapi.com/coin/"+str(num)+"/history/7d"
+
+    # headers = {
+    #     'x-rapidapi-key': "ba2786a8fbmshc8e2bb00a0cdfcfp192bedjsne79d060f20c2",
+    #     'x-rapidapi-host': "coinranking1.p.rapidapi.com"
+    #     }
+
+    # response = requests.request("GET", url, headers=headers)
+
+    
+    return render_template('singlecoin.html',user=current_user)
+
+
+
+
+
+@crypto_curr.route('/crypto/grouped-data',methods=['GET','POST'])
+@login_required
+def groupedData():
+    
+    
+    # num=1
+    # url = "https://coinranking1.p.rapidapi.com/coin/"+str(num)+"/history/7d"
+
+    # headers = {
+    #     'x-rapidapi-key': "ba2786a8fbmshc8e2bb00a0cdfcfp192bedjsne79d060f20c2",
+    #     'x-rapidapi-host': "coinranking1.p.rapidapi.com"
+    #     }
+
+    # response = requests.request("GET", url, headers=headers)
+
+    
+    return render_template('grouped.html',user=current_user)
