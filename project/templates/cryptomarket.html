@@ -10,6 +10,34 @@
 
 
 {%block content%}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+        {%if messages %}
+            {%for category,message in messages%}
+                {%if category == "warning" %}
+                <div class="alert text-center alert-warning  alert-dismissable fade show" role="alert">
+                    
+                        {{ message }}
+                   
+                    
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden ="true">&times;</span>
+                    </button>
+                </div>
+                {%else%}
+                <div class="alert text-center alert-success  flex-end alert-dismissable fade show" role="alert">
+                    
+                        {{ message }}
+                   
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden ="true">&times;</span>
+                    </button>
+                </div>
+                {%endif%}
+            {%endfor%}
+        {%endif%}
+    {% endwith %}
+    
 <body onload='getMarket()'>
     <div class="container" style="margin-top:100px;">
 
