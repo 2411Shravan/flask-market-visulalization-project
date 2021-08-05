@@ -133,3 +133,24 @@ def closeData():
 def cryptoNews():
     
     return render_template('cryptonews.html',user=current_user)
+
+
+@crypto_curr.route('/crypto/daily',methods=['GET','POST'])
+@login_required
+def daily():
+    
+    return render_template('daily.html',user=current_user)
+
+@crypto_curr.route('/crypto/weekly',methods=['GET','POST'])
+@login_required
+def weekly():
+    
+    return render_template('weekly.html',user=current_user)
+
+
+
+@crypto_curr.route('/crypto/monthly',methods=['GET','POST'])
+@login_required
+def monthly():
+    
+    return render_template('monthly.html',user=current_user)
