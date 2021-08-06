@@ -64,7 +64,7 @@ function showMonthlyData(response){
     console.log(month);
     spins.style.display='none';
     writer.innerHTML+=`
-    <h6 class="mb-3">1000 Monthly Weekly History of ${CoinInp} in ${CurInp} market</h6>
+    <h6 class="mb-3">1000 Days Monthly  History of ${CoinInp} in ${CurInp} market</h6>
     `
 
 

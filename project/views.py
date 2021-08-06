@@ -33,7 +33,7 @@ def ShareMarket():
 @view.route('/crypto')
 @login_required
 def Crypto():
-    return render_template('crypto.html',user=current_user)
+    return render_template('crypto/crypto.html',user=current_user)
 
 
 
