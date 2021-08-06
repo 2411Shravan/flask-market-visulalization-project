@@ -83,7 +83,7 @@ var red=[];
         console.log(res);
         chase.style.display='none';
         write.innerHTML+=`
-        <h6 class="mb-3">1000 Days History of ${CDAR} in ${CVAR} market</h6>
+        <h6 class="mb-3">1000 Days Daily History of ${CDAR} in ${CVAR} market</h6>
         `
         var options = {
             series: [{
@@ -108,4 +108,5 @@ var red=[];
   
           var chart = new ApexCharts(document.querySelector("#chart"), options);
           chart.render();
+          console.log(res.length);
 }
