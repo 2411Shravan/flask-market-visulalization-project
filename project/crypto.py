@@ -13,44 +13,44 @@ crypto_curr = Blueprint('crypto_curr',__name__)
 @crypto_curr.route('/crypto/exchanges-uuid/')
 @login_required
 def crypto():
-    return render_template('exchange.html',user=current_user)
+    return render_template('crypto/CryptoDatas/exchange.html',user=current_user)
 
 @crypto_curr.route('/crypto/globalstats/')
 @login_required
 def globalstats():
-    return render_template('globalstats.html',user=current_user)
+    return render_template('crypto/CryptoDatas/globalstats.html',user=current_user)
 
 @crypto_curr.route('/crypto/market/')
 @login_required
 def cryptomarket():
-    return render_template('cryptomarket.html',user=current_user)
+    return render_template('crypto/CryptoDatas/cryptomarket.html',user=current_user)
 
 
 @crypto_curr.route('/crypto/intraday/five-minutes-delay/')
 @login_required
 def intradayData():
-    return render_template('intraday.html',user=current_user)
+    return render_template('crypto/CryptoDatas/intraday.html',user=current_user)
 
 
 @crypto_curr.route('/crypto/country-codes/')
 @login_required
 def countrycodes():
-    return render_template('countrycode.html',user=current_user)
+    return render_template('crypto/CryptoDatas/countrycode.html',user=current_user)
 
 
 @crypto_curr.route('/crypto/crypto-codes/')
 @login_required
 def cryptocodes():
-    return render_template('cryptocode.html',user=current_user)
+    return render_template('crypto/CryptoDatas/cryptocode.html',user=current_user)
 
 
 
 
 
-@crypto_curr.route('/crypto/daily/open-close')
+@crypto_curr.route('/crypto/daily/open-close',methods=['GET', 'POST'])
 @login_required
 def openclose():
-    return render_template('openclose.html',user=current_user)
+    return render_template('crypto/CryptoDatas/openclose.html',user=current_user)
 
 
 
@@ -70,7 +70,7 @@ def history():
     # response = requests.request("GET", url, headers=headers)
 
     
-    return render_template('coinhistory.html',user=current_user)
+    return render_template('crypto/CryptoDatas/coinhistory.html',user=current_user)
 
 @crypto_curr.route('/crypto/allcoins/',methods=['GET','POST'])
 @login_required
@@ -88,7 +88,7 @@ def allcoins():
     # response = requests.request("GET", url, headers=headers)
 
     
-    return render_template('coins.html',user=current_user)
+    return render_template('crypto/CryptoDatas/coins.html',user=current_user)
 
     
 
@@ -109,7 +109,7 @@ def singlecoin():
     # response = requests.request("GET", url, headers=headers)
 
     
-    return render_template('singlecoin.html',user=current_user)
+    return render_template('crypto/CryptoDatas/singlecoin.html',user=current_user)
 
 
 
@@ -119,33 +119,33 @@ def singlecoin():
 @login_required
 def groupedData():
     
-    return render_template('grouped.html',user=current_user)
+    return render_template('crypto/CryptoDatas/grouped.html',user=current_user)
 
 @crypto_curr.route('/crypto/close-data',methods=['GET','POST'])
 @login_required
 def closeData():
     
-    return render_template('prev.html',user=current_user)
+    return render_template('crypto/CryptoDatas/prev.html',user=current_user)
 
 
 @crypto_curr.route('/crypto/news',methods=['GET','POST'])
 @login_required
 def cryptoNews():
     
-    return render_template('cryptonews.html',user=current_user)
+    return render_template('crypto/CryptoDatas/cryptonews.html',user=current_user)
 
 
 @crypto_curr.route('/crypto/daily',methods=['GET','POST'])
 @login_required
 def daily():
     
-    return render_template('daily.html',user=current_user)
+    return render_template('crypto/CryptoDatas/daily.html',user=current_user)
 
 @crypto_curr.route('/crypto/weekly',methods=['GET','POST'])
 @login_required
 def weekly():
     
-    return render_template('weekly.html',user=current_user)
+    return render_template('crypto/CryptoDatas/weekly.html',user=current_user)
 
 
 
@@ -153,4 +153,10 @@ def weekly():
 @login_required
 def monthly():
     
-    return render_template('monthly.html',user=current_user)
+    return render_template('crypto/CryptoDatas/monthly.html',user=current_user)
+
+@crypto_curr.route('/crypto/exchange/',methods=['GET','POST'])
+@login_required
+def exchange():
+    
+    return render_template('crypto/CryptoDatas/cryptoExchange.html',user=current_user)
