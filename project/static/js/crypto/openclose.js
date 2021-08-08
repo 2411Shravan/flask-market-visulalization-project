@@ -28,6 +28,7 @@ requestForm.addEventListener('submit', (e)=>{
     
     
     CD=Coin.value;
+    console.log(CD);
     getopenclose();
 })
 

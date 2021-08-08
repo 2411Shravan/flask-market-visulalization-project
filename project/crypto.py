@@ -47,7 +47,7 @@ def cryptocodes():
 
 
 
-@crypto_curr.route('/crypto/daily/open-close')
+@crypto_curr.route('/crypto/daily/open-close',methods=['GET', 'POST'])
 @login_required
 def openclose():
     return render_template('crypto/CryptoDatas/openclose.html',user=current_user)
@@ -154,3 +154,9 @@ def weekly():
 def monthly():
     
     return render_template('crypto/CryptoDatas/monthly.html',user=current_user)
+
+@crypto_curr.route('/crypto/exchange/',methods=['GET','POST'])
+@login_required
+def exchange():
+    
+    return render_template('crypto/CryptoDatas/cryptoExchange.html',user=current_user)
