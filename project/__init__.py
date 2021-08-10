@@ -23,10 +23,13 @@ def create_app():
     from .views import view
     from .auth import auth
     from .crypto import crypto_curr
+    from .share import share_market
 
     app.register_blueprint(view)
     app.register_blueprint(auth)
     app.register_blueprint(crypto_curr)
+    app.register_blueprint(share_market)
+
 
     from .models import User,Note,MarketValue
     create_db(app)
