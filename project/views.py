@@ -42,6 +42,11 @@ def Crypto():
 def mutualfunds():
     return render_template('mutual.html',user=current_user)
 
+@view.route('/fundamentals')
+@login_required
+def fundamentals():
+    return render_template('fundamentals.html',user=current_user)
+
 
 @view.route('/currencies')
 @login_required
