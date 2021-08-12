@@ -14,3 +14,8 @@ fundamentals = Blueprint('fundamentals',__name__)
 @login_required
 def stock_symbols():
     return render_template('fundamentals/stock_symbol.html',user=current_user)
+
+@fundamentals.route('/fundamentals/all-stocks/')
+@login_required
+def all_stocks():
+    return render_template('fundamentals/allstocks.html',user=current_user)

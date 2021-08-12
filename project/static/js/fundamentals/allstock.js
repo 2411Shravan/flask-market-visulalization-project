@@ -1,46 +1,49 @@
-const spinner_load = document.getElementById('load_spinner');
-const head = document.getElementById("head")
-
-const arr_stock=[];
-function getStock(){
-    spinner_load.style.display = 'block';
-    head.style.display = 'none';
-   // console.log('hwllo world');
-    var api = 'https://finnhub.io/api/v1/stock/symbol?exchange=US&token=c2vgio2ad3i9mrpv9i2g';
-    getStocks(api);
-}
-
-async function getStocks(API){
-    const response = await fetch(API);
-    const responseData=await response.json();
-   // console.log(responseData);
-    showStocks(responseData);
+const roller = document.getElementById('roller');
+const arr_alldata=[];
+async function getAllStock(){
+    roller.style.display='block';
+    console.log('hello world');
+    var api ="https://api.twelvedata.com/stocks?source=docs";
+    const response = await fetch(api);
+    const datas = await response.json();
+   console.log(datas);
+   //console.log(datas.length);
+    getAllData(datas);
     
 }
-function showStocks(datas){
 
-    datas.forEach(data=>{
+
+  function getAllData(ans){
+    // ans.forEach(dat=>{
+    //     console.log(dat);
+    // });
+//    console.log(ans);
+    const{data}=ans;
+    for(var i=0;i<data.length;i++){
         var obj={};
-        obj['name']=data.description;
-        obj['currency']=data.currency;
-        obj['symbol']=data.displaySymbol;
-        // obj['mic']=data.mic;
-        obj['type']=data.type;
-      //  console.log(data);
-        arr_stock.push(obj);
-    });
-
-    spinner_load.style.display = 'none';
-    console.log(arr_stock);
-    buildTable();
+        obj['currency']=data[i].currency;
+        obj['name']=data[i].name;
+        obj['symbol']=data[i].symbol;
+        obj['type']=data[i].type;
+    
+        // console.log(data[i]);
+        arr_alldata.push(obj);
+    }
+  
+console.log(arr_alldata.length);
+buildTable();
+roller.style.display='none';
 }
 
 var state = {
-    'querySet': arr_stock,
+    'querySet': arr_alldata,
+
     'page': 1,
-    'rows': 25,
+    'rows': 10,
     'window': 5,
 }
+
+
 
 function pagination(querySet, page, rows) {
 
@@ -58,7 +61,7 @@ function pagination(querySet, page, rows) {
 }
 
 function pageButtons(pages) {
-    var wrapper = document.getElementById('pagination-wrapper')
+    var wrapper = document.getElementById('Pagination-Wrapper');
 
     wrapper.innerHTML = ``
 	console.log('Pages:', pages)
@@ -95,32 +98,53 @@ function pageButtons(pages) {
     }
 
     $('.page').on('click', function() {
-        $('#table-body').empty()
+        $('#Table-Body').empty()
 
         state.page = Number($(this).val())
 
-        buildTable();
+        buildTable()
     })
 
 }
 
+
 function buildTable() {
-    var table = $('#table-body')
+    var table = $('#Table-Body')
 
     var data = pagination(state.querySet, state.page, state.rows)
-    var myList = data.querySet;
-    head.style.display = 'block';
+    var myList = data.querySet
+
     for (var i = 1 in myList) {
         //Keep in mind we are using "Template Litterals to create rows"
-        var row = `<tr class="change-font">
-                  <td >${myList[i].currency}</td>
-                  
-                  <td >${myList[i].name}</td>
-                  <td >${myList[i].symbol}</td>
-                  <td >${myList[i].type}</td>
+        var row = `<tr>
+                  <td>${myList[i].currency}</td>
+                  <td>${myList[i].name}</td>
+                  <td>${myList[i].symbol}</td>
+                  <td>${myList[i].type}</td>
                   `
         table.append(row)
     }
 
     pageButtons(data.pages)
 }
+
+
+
+
+function showAllData(datas){
+    for(var i=0;i<datas.length;i++){
+        var obj={};
+        obj['name']=datas[i].country;
+        obj['currency']=datas[i].currency;
+        obj['name']=datas[i].name;
+        obj['symbol']=datas[i].symbol;
+        obj['equity']=datas[i].equity;
+
+        arr_alldata.push(obj);
+    }
+
+
+    console.log(arr_alldata);
+    // roller.style.display='none';
+}
+
