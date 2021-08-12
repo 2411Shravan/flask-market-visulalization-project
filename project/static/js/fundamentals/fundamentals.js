@@ -32,17 +32,36 @@ function showStocks(datas){
 
     spinner_load.style.display = 'none';
     console.log(arr_stock);
-    buildTable();
+    //BuildTable();
+    var table = $('#table-body')
+
+    // var data = Pagination(state.querySet, state.page, state.rows)
+    // var myList = data.querySet;
+    head.style.display = 'block';
+    // console.log(myList);
+    // console.log('hello world');
+    for (var i = 1 in arr_stock) {
+        //Keep in mind we are using "Template Litterals to create rows"
+       // console.log('hello world');
+        var row = `<tr class="change-font">
+                  <td >${arr_stock[i].currency}</td>
+                  
+                  <td >${arr_stock[i].name}</td>
+                  <td >${arr_stock[i].symbol}</td>
+                  <td >${arr_stock[i].type}</td>
+                  `
+        table.append(row)
+    }
 }
 
-var state = {
+var State = {
     'querySet': arr_stock,
     'page': 1,
     'rows': 25,
     'window': 5,
 }
 
-function pagination(querySet, page, rows) {
+function Pagination(querySet, page, rows) {
 
     var trimStart = (page - 1) * rows
     var trimEnd = trimStart + rows
@@ -61,7 +80,7 @@ function pageButtons(pages) {
     var wrapper = document.getElementById('pagination-wrapper')
 
     wrapper.innerHTML = ``
-	console.log('Pages:', pages)
+	console.log('pages:', pages)
 
     var maxLeft = (state.page - Math.floor(state.window / 2))
     var maxRight = (state.page + Math.floor(state.window / 2))
@@ -99,19 +118,22 @@ function pageButtons(pages) {
 
         state.page = Number($(this).val())
 
-        buildTable();
+        BuildTable();
     })
 
 }
 
-function buildTable() {
+function BuildTable() {
     var table = $('#table-body')
 
-    var data = pagination(state.querySet, state.page, state.rows)
+    var data = Pagination(state.querySet, state.page, state.rows)
     var myList = data.querySet;
     head.style.display = 'block';
+    console.log(myList);
+    console.log('hello world');
     for (var i = 1 in myList) {
         //Keep in mind we are using "Template Litterals to create rows"
+        console.log('hello world');
         var row = `<tr class="change-font">
                   <td >${myList[i].currency}</td>
                   

@@ -61,10 +61,10 @@ function pagination(querySet, page, rows) {
 }
 
 function pageButtons(pages) {
-    var wrapper = document.getElementById('Pagination-Wrapper');
+    var wrapper = document.getElementById('Pagination-Wrapper')
 
     wrapper.innerHTML = ``
-	console.log('Pages:', pages)
+	console.log('pages:', pages)
 
     var maxLeft = (state.page - Math.floor(state.window / 2))
     var maxRight = (state.page + Math.floor(state.window / 2))
