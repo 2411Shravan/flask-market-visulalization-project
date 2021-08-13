@@ -5,7 +5,7 @@ from flask import redirect
 from flask import flash
 from flask_login import current_user
 from flask_login import login_required
-import requests 
+import requests
 
 fundamentals = Blueprint('fundamentals',__name__)
 
@@ -19,3 +19,8 @@ def stock_symbols():
 @login_required
 def all_stocks():
     return render_template('fundamentals/allstocks.html',user=current_user)
+
+@fundamentals.route('/fundamentals/company-profile/')
+@login_required
+def profile():
+    return render_template('fundamentals/company_profile.html',user=current_user)
