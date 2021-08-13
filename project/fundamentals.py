@@ -31,8 +31,25 @@ def profile():
         url = 'https://www.alphavantage.co/query?function=OVERVIEW&symbol='+comp_name+'&apikey=WH75LQJ4BD7S15TO'
         r = requests.get(url)
         data = r.json()
+        if data:
 
+            name=data['Name']
+            symbol=data['Symbol']
+            sector=data['Sector']
+            industry=data['Industry']
+            country=data['Country']
+            asset=data['AssetType']
+            address=data['Address']
+            comp=data['Description']
+            exchange=data['Exchange']
+            return render_template('fundamentals/company_profile.html',
+                    user=current_user,comp=comp,name=name,symbol=symbol,sector=sector,
+                    industry=industry,country=country,asset=asset,address=address,exchange=exchange,data=data)
+        else:
+            message='No data exists with our data providers for such given code input'
+            return render_template('fundamentals/company_profile.html',
+                    user=current_user,message=message)
         # pprint(data)
-        return render_template('fundamentals/company_profile.html',user=current_user)
+        
         
     return render_template('fundamentals/company_profile.html',user=current_user)
