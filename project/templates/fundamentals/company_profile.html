@@ -7,9 +7,33 @@
 
 
 {%block content%}
-    <div class="container">
-        <div class="card">
-            Hello world
-        </div>
+    <div class="container cryptoIntra">
+        <form method="POST">
+            <label class="form-label" for="formInputExample">Enter Company Code</label>
+            <input type="text"name='company' class="form-control" id="formInputExample" placeholder="Comp-Code ex:MSFT">
+        </form>
     </div>
+    {%if comp%}
+        {{comp}}
+    {%endif%}
+    <style>
+         .cryptoIntra{
+        width:50%;
+        margin-top:150px;
+    }
+    .card{
+        border: 2px solid rgba(128, 128, 128, 0.575);
+    }
+
+    @media(min-width:550px) and (max-width:850px){
+        .cryptoIntra{
+        width:70%;
+    }
+}
+    @media(max-width:549px){
+        .cryptoIntra{
+        width:80%;
+    }
+    }
+    </style>
 {%endblock%}
