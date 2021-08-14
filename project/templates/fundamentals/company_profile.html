@@ -13,17 +13,57 @@
             <input type="text"name='company' class="form-control" id="formInputExample" placeholder="Comp-Code ex:MSFT">
         </form>
     </div>
-    {%if comp%}
-        {{comp}}
+    {%if data%}
+    <div class="container bg-dark text-white" style="border-radius: 4px; margin-top:100px;margin-bottom:50px">
+     
+            <div class="d-flex"  style="padding:5px 0px 0px 5px">
+                Name - {{name}}
+            </div>
+            <div  style="padding:5px 5px 5px 5px">
+                Symbol - {{symbol}}
+            </div>
+            <div  style="padding:5px 5px 5px 5px">
+                Country of Origin - {{country}}
+            </div>
+            <div  style="padding:5px 5px 5px 5px">
+                Base Type - {{industry}}
+            </div>
+            <div  style="padding:5px 5px 5px 5px">
+                Sector - {{sector}}
+            </div>
+            <div  style="padding:5px 5px 5px 5px">
+                {{comp}}
+            </div>
+            <div  style="padding:5px 5px 5px 5px">
+               Address - {{address}}
+            </div>
+            <div  style="padding:5px 5px 5px 5px">
+                Asset - {{asset}}
+            </div>
+            <div  style="padding:5px 5px 5px 5px">
+                Exchange - {{exchange}}
+            </div>
+            
+            
+            
+       
+        
+    </div>
     {%endif%}
+        {%if message%}
+        <div class="container cryptoIntra">
+            <p>{{message}}</p>
+        </div>
+            
+        {%endif%}
+    
+    
     <style>
          .cryptoIntra{
         width:50%;
-        margin-top:150px;
+        margin-top:100px;
     }
-    .card{
-        border: 2px solid rgba(128, 128, 128, 0.575);
-    }
+    
 
     @media(min-width:550px) and (max-width:850px){
         .cryptoIntra{
