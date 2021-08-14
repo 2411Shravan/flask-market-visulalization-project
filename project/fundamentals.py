@@ -53,3 +53,15 @@ def profile():
         
         
     return render_template('fundamentals/company_profile.html',user=current_user)
+
+
+@fundamentals.route('/fundamentals/all-exchanges/',methods=['GET','POST'])
+@login_required
+def exchanges():
+    # url='https://api.twelvedata.com/exchanges?source=docs'
+    # re=requests.get(url)
+    # req=re.json()
+    
+    # dets=req['data']
+    # pprint(dets['code'])
+    return render_template('fundamentals/exchange.html',user=current_user)
