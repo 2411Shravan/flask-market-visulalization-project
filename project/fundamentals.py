@@ -53,3 +53,42 @@ def profile():
         
         
     return render_template('fundamentals/company_profile.html',user=current_user)
+
+
+@fundamentals.route('/fundamentals/all-exchanges/',methods=['GET','POST'])
+@login_required
+def exchanges():
+    # url='https://api.twelvedata.com/exchanges?source=docs'
+    # re=requests.get(url)
+    # req=re.json()
+    
+    # dets=req['data']
+    # pprint(dets['code'])
+    return render_template('fundamentals/exchange.html',user=current_user)
+
+@fundamentals.route('/fundamentals/all-tickers/',methods=['GET','POST'])
+@login_required
+def tickers():
+    data=[]
+    rich=True
+    url='https://api.polygon.io/v3/reference/tickers?active=true&sort=ticker&order=asc&limit=1000&apiKey=Uzuvj8JwkDonC3dGzEcxu42LcwwyBHUk'
+
+    while(rich):
+        re=requests.get(url)
+        req=re.json()
+        pprint(req['results'])
+        print('mid')
+        
+        
+        
+        data.append(req['results'])
+        key_to_lookup = 'next_url'
+        if req.__contains__(key_to_lookup):
+            url=req['next_url']+'&active=true&sort=ticker&order=asc&limit=1000&apiKey=Uzuvj8JwkDonC3dGzEcxu42LcwwyBHUk'
+        else:
+            rich=False
+        
+
+    
+    print(len(data))
+    return render_template('fundamentals/alltickers.html',user=current_user,datas=data)
