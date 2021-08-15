@@ -99,7 +99,17 @@ ROWS_PER_PAGE = 20
 # dope=[];
 
 
+def intro(data):
+    url='https://finnhub.io/api/v1/company-news?symbol='+data+'&from=2021-03-13&to=2021-08-15&token=c2vgio2ad3i9mrpv9i2g'
+    print(data)
+    req=requests.get(url)
+    datas=req.json()
+    # dope.append(datas)
+    message='Error in your input'
+    pprint(datas)
+   
 
+    return datas
 
 @fundamentals.route('/fundamentals/get-news/',methods=['GET','POST'])
 @login_required
@@ -112,14 +122,12 @@ def getnews():
     else:
         return render_template('fundamentals/getnews.html',user=current_user)
 
+@fundamentals.route('/fundamentals/finance-insider/',methods=['GET','POST'])
+@login_required
+def insider():
+    return render_template('fundamentals/insider.html',user=current_user)
+  
 
-def intro(data):
-    url='https://finnhub.io/api/v1/company-news?symbol='+data+'&from=2021-03-13&to=2021-08-15&token=c2vgio2ad3i9mrpv9i2g'
-    print(data)
-    req=requests.get(url)
-    datas=req.json()
-    # dope.append(datas)
-    pprint(datas)
+
+
    
-    
-    return datas
