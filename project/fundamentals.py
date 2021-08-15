@@ -92,3 +92,12 @@ def tickers():
     
     print(len(data))
     return render_template('fundamentals/alltickers.html',user=current_user,datas=data)
+
+
+
+
+@fundamentals.route('/fundamentals/newss/',methods=['GET','POST'])
+@login_required
+def intro():
+    
+    return render_template('fundamentals/news.html',user=current_user)
