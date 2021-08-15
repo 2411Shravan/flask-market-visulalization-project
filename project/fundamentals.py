@@ -7,6 +7,7 @@ from flask_login import current_user
 from flask_login import login_required
 from flask import request
 from pprint import pprint
+
 import requests
 
 fundamentals = Blueprint('fundamentals',__name__)
@@ -94,10 +95,31 @@ def tickers():
     return render_template('fundamentals/alltickers.html',user=current_user,datas=data)
 
 
+ROWS_PER_PAGE = 20
+# dope=[];
 
 
-@fundamentals.route('/fundamentals/newss/',methods=['GET','POST'])
+
+
+@fundamentals.route('/fundamentals/get-news/',methods=['GET','POST'])
 @login_required
-def intro():
+def getnews():
     
-    return render_template('fundamentals/news.html',user=current_user)
+    if request.method == 'POST':
+        name= request.form['companyName']
+        datas = intro(name)
+        return render_template('fundamentals/news.html',user=current_user,datas=datas)
+    else:
+        return render_template('fundamentals/getnews.html',user=current_user)
+
+
+def intro(data):
+    url='https://finnhub.io/api/v1/company-news?symbol='+data+'&from=2021-03-13&to=2021-08-15&token=c2vgio2ad3i9mrpv9i2g'
+    print(data)
+    req=requests.get(url)
+    datas=req.json()
+    # dope.append(datas)
+    pprint(datas)
+   
+    
+    return datas
