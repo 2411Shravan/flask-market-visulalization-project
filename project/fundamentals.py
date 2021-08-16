@@ -128,6 +128,60 @@ def insider():
     return render_template('fundamentals/insider.html',user=current_user)
   
 
+def getEarnings(read):
+    req=requests.get(read)
+    datas=req.json()
+    
+    if datas: 
+        return datas
+    else:
+        return 0
 
 
+
+@fundamentals.route('/fundamentals/earnings/',methods=['GET','POST'])
+@login_required
+def earnings():
+    message='No data found'
+    xaxes=[];
+    yaxes=[];
+    rdate=[];
+    reportedEPS=[];
+    estimatedEPS=[];
+    surprise=[];
+    surprisePercentage=[];
+
+    if request.method == 'POST':
+        code = request.form['earning']
+        # print(code)
+        url='https://www.alphavantage.co/query?function=EARNINGS&symbol='+code+'&apikey=WH75LQJ4BD7S15TO'
+        notes=getEarnings(url)
+        if notes:
+            cotes=notes['annualEarnings']
+            gotes=notes['quarterlyEarnings']
+            
+            for i in cotes:
+                xaxes.append(i['fiscalDateEnding'])
+                yaxes.append(i['reportedEPS'])
+                # print(i['fiscalDateEnding'])
+                # print(i['reportedEPS'])
+
+            for j in gotes:
+                rdate.append(j['reportedDate'])
+                reportedEPS.append(j['reportedEPS'])
+                estimatedEPS.append(j['estimatedEPS'])
+                surprise.append(j['surprise'])
+                surprisePercentage.append(j['surprisePercentage'])
+                print(j['surprisePercentage'])
+
+            leny=len(yaxes)
+            lenx=len(xaxes)
+            return render_template('fundamentals/earnings.html',
+            user=current_user,xaxes=xaxes,yaxes=yaxes,lenx=lenx,
+            leny=leny,rdate=rdate,report=reportedEPS,estimate=estimatedEPS,sur=surprise,surprise=surprisePercentage)
+        else:
+            return render_template('fundamentals/earnings.html',
+            user=current_user,message=message)
+
+    return render_template('fundamentals/earnings.html',user=current_user)
    
