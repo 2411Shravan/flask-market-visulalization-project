@@ -19,6 +19,9 @@
    <div class="container ">
        <canvas id="chart"></canvas>
        <canvas class="mt-5" id="charttwo"></canvas>
+       <canvas class="mt-5" id="chartthree"></canvas>
+       <canvas class="mt-5" id="chartfour"></canvas>
+       <canvas class="mt-5" id="chartfive"></canvas>
    </div>
         
         <script>
@@ -56,33 +59,84 @@
                     data: {{report | safe}},
                     lineTension:0.5,
                     fill:true,
-                    borderColor: '#013220'
+                    borderColor: '#170454'
                    
-                },
+                }]
+            },
+            options:{
+        scales:{
+            x: {
+                display: false
+            }
+        }
+    }
+        });
+
+        var rele = document.getElementById('chartthree').getContext('2d');
+        var myChart = new Chart(rele, {
+            type: 'line',
+            data: {
+                labels: {{rdate | safe }},
+                datasets: [
                 {
                     label: 'estimated EPS',
                     data: {{estimate | safe}},
                     lineTension:0.5,
                     fill:true,
-                    borderColor: '#e75480'
+                    borderColor: '#8B0000'
                    
-                },
+                }
+                ]
+            },
+            options:{
+        scales:{
+            x: {
+                display: false
+            }
+        }
+    }
+        });
+
+        var relev = document.getElementById('chartfour').getContext('2d');
+        var myChart = new Chart(relev, {
+            type: 'line',
+            data: {
+                labels: {{rdate | safe }},
+                datasets: [
                 {
                     label: 'surprisePercentage',
                     data: {{surprise | safe}},
                     lineTension:0.5,
                     fill:true,
-                    borderColor: '#8bbe1b'
+                    borderColor: '#32D4E5'
                    
-                },
+                }
+                ]
+            },
+            options:{
+        scales:{
+            x: {
+                display: false
+            }
+        }
+    }
+        });
+
+        var releva = document.getElementById('chartfive').getContext('2d');
+        var myChart = new Chart(releva, {
+            type: 'line',
+            data: {
+                labels: {{rdate | safe }},
+                datasets: [
                 {
                     label: 'surprise EPS',
                     data: {{sur | safe}},
                     lineTension:0.5,
                     fill:true,
-                    borderColor: '#a9a9a9'
+                    borderColor: '#FFD919'
                    
-                }]
+                }
+                ]
             },
             options:{
         scales:{
