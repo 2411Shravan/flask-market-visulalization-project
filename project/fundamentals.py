@@ -95,8 +95,6 @@ def tickers():
     return render_template('fundamentals/alltickers.html',user=current_user,datas=data)
 
 
-ROWS_PER_PAGE = 20
-# dope=[];
 
 
 def intro(data):
