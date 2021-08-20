@@ -1,0 +1,51 @@
+{%extends 'base.html'%}
+
+
+{%block title %}
+   Company-Profile
+{%endblock %}
+
+
+{%block content%}
+
+    <div class="container">
+        <h2>You are now in IPO section</h2>
+    </div>
+
+
+        <div class="container mt-5">
+            {%if datas%}
+            <table class="table table-striped table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col" class='res'>Symbol</th>
+                    <th scope="col" >Value</th>
+                  </tr>
+                </thead>
+                {%for data in datas%}
+                <tbody>
+                    
+                    <tr>
+                        <td>{{data['name']}}</td>
+                        <td>{{data['date']}}</td>
+                        <td class='res'>{{data['symbol']}}</td>
+                        <td >{{data['totalSharesValue']}}</td>
+                      </tr>
+                   
+                 
+                 
+                </tbody>
+                {%endfor%}
+              </table>
+        </div>
+            {%endif%}
+           <style>
+               @media(max-width: 500px){
+                    .res{
+                        display: none;
+                    }
+               }
+           </style>
+{%endblock%}

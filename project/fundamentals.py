@@ -7,6 +7,7 @@ from flask_login import current_user
 from flask_login import login_required
 from flask import request
 from pprint import pprint
+from datetime import date
 
 import requests
 
@@ -183,3 +184,15 @@ def earnings():
 
     return render_template('fundamentals/earnings.html',user=current_user)
    
+
+
+@fundamentals.route('/fundamentals/ipo/',methods=['GET','POST'])
+@login_required
+def ipo():
+    act=date.today()
+    url='https://finnhub.io/api/v1/calendar/ipo?from=2020-01-01&to='+f'{act}'+'&token=c2vgio2ad3i9mrpv9i2g'
+    req=requests.get(url)
+    datas=req.json()
+    # pprint(datas)
+    results=datas['ipoCalendar']
+    return render_template('fundamentals/ipo.html',user=current_user,datas=results)
