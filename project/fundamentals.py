@@ -78,8 +78,8 @@ def tickers():
     while(rich):
         re=requests.get(url)
         req=re.json()
-        pprint(req['results'])
-        print('mid')
+        # pprint(req['results'])
+        # print('mid')
         
         
         
@@ -99,7 +99,8 @@ def tickers():
 
 
 def intro(data):
-    url='https://finnhub.io/api/v1/company-news?symbol='+data+'&from=2021-03-13&to=2021-08-15&token=c2vgio2ad3i9mrpv9i2g'
+    act=date.today()
+    url='https://finnhub.io/api/v1/company-news?symbol='+data+'&from=2021-01-10&to='+f'{act}'+'&token=c2vgio2ad3i9mrpv9i2g'
     print(data)
     req=requests.get(url)
     datas=req.json()
@@ -196,3 +197,17 @@ def ipo():
     # pprint(datas)
     results=datas['ipoCalendar']
     return render_template('fundamentals/ipo.html',user=current_user,datas=results)
+
+
+
+
+@fundamentals.route('/fundamentals/market-news/',methods=['GET','POST'])
+@login_required
+def marketNews():
+   
+    url='https://finnhub.io/api/v1/news?category=general&token=c2vgio2ad3i9mrpv9i2g'
+    req=requests.get(url)
+    datas=req.json()
+    pprint(datas)
+    
+    return render_template('fundamentals/generalNews.html',user=current_user,datas=datas)
