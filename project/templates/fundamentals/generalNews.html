@@ -1,0 +1,47 @@
+{%extends 'base.html'%}
+
+
+{%block title %}
+    Fundamentals
+{%endblock %}
+
+
+{%block content%}
+<div class="contanier" style="display:flex;align-items:center;justify-content:center;flex-direction:column;">
+    {%if datas %}
+        {%for data in datas %}
+            <div class="card mt-5">
+                <div class="card-body">
+                    <div class="headline text-center">
+                        <h5>{{data['headline']}}</h5>
+                    </div>
+                    <div class="img" style="display:flex;align-items:center;justify-content:center;flex-direction:column;">
+                        <img src="{{data['image']}}">
+                    </div>
+                    <div class="other">
+                        {{data['summary']}}
+                    </div>
+                    <div class="other">
+                       <a href="{{data['url']}}">read more...</a> 
+                    </div>
+                    <div class="text-right text-secondary">
+                        Source - {{data['source']}}
+                    </div>
+                </div>
+            </div>
+        {%endfor%}
+    {%endif%}
+</div>
+   <style>
+       img{
+           height:40%;
+           width:40%;
+       }
+       @media(max-width:750px){
+        img{
+           height:80%;
+           width:80%;
+       }
+       }
+   </style>
+{%endblock%}
