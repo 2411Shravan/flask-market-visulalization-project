@@ -211,3 +211,12 @@ def marketNews():
     pprint(datas)
     
     return render_template('fundamentals/generalNews.html',user=current_user,datas=datas)
+
+
+
+@fundamentals.route('/fundamentals/filings/',methods=['GET','POST'])
+@login_required
+def filings():
+   
+    
+    return render_template('fundamentals/sec.html',user=current_user)
