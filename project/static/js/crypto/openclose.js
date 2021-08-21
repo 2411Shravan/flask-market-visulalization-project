@@ -23,7 +23,7 @@ const xdata=[];
 const xopendata=[];
 
 
-requestForm.addEventListener('submit', (e)=>{
+requestForm.addEventListener('submit', function (e){
     e.preventDefault();
     
     
