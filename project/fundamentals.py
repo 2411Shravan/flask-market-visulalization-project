@@ -264,7 +264,7 @@ def reports():
     
     return render_template('fundamentals/repFin.html',user=current_user)
 
-@fundamentals.route('/fundamentals/basic-financials/',methods=['GET','POST'])
+@fundamentals.route('/fundamentals/basic-financials/')
 @login_required
 def basics():
 
