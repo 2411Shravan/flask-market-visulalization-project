@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+
+
+{%block title%}
+    Basic-Finance
+{%endblock%}
+
+
+{%block content%}
+<div class="container">
+    <form id="getBasics",method='POST'>
+        <label class="form-label" for="formInputExample">Enter Company/Firm Ticker(Code)</label>
+        <input type="text" name='comp' class="form-control" id="comp" placeholder="Comp-Code ex:MSFT">
+    </form>
+</div>
+{%endblock%}

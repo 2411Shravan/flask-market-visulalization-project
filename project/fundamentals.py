@@ -263,3 +263,10 @@ def reports():
     #     return render_template('fundamentals/repFin.html',user=current_user,st=st)
     
     return render_template('fundamentals/repFin.html',user=current_user)
+
+@fundamentals.route('/fundamentals/basic-financials/',methods=['GET','POST'])
+@login_required
+def basics():
+
+    
+    return render_template('fundamentals/basics.html',user=current_user)
