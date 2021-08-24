@@ -17,6 +17,10 @@ var oneone=[];
 var onetwo=[];
 var onethree=[];
 var period=[];
+var netone=[];
+var nettwo=[];
+var netthree=[];
+
 
 function getBasicFinData(result){
     var api='https://finnhub.io/api/v1/stock/metric?symbol='+result+'&metric=all&token=c2vgio2ad3i9mrpv9i2g'
@@ -35,11 +39,23 @@ function showD(response){
    // console.log(series);
     const{annual,quarterly}=series;
    // console.log(annual);
-    const{longtermDebtTotalAsset,longtermDebtTotalCapital,longtermDebtTotalEquity}=annual;
+    const{longtermDebtTotalAsset,longtermDebtTotalCapital,longtermDebtTotalEquity,netDebtToTotalCapital,netDebtToTotalEquity,netMargin}=annual;
     longtermDebtTotalAsset.forEach(lt=>{
         oneone.push(lt['v']);
         period.push(lt['period'])
     });
+    netDebtToTotalCapital.forEach(nd=>{
+        netone.push(nd['v'])
+    })
+
+    netDebtToTotalEquity.forEach(nd=>{
+        nettwo.push(nd['v'])
+    })
+
+    netMargin.forEach(nd=>{
+        netthree.push(nd['v'])
+    })
+
 
     longtermDebtTotalCapital.forEach(ld=>{
         onetwo.push(ld['v'])
@@ -86,13 +102,57 @@ function showD(response){
             }]
         },
         options:{
-            maintainAspectRatio: false,
-    responsive:true,
+            maintainAspectRatio: true,
+        responsive:true,
     scales:{
         x: {
             display: false
         }
     }
-}
+    }
+    });
+
+
+    var ctxe = document.getElementById('chart1').getContext('2d');
+    var myChart = new Chart(ctxe, {
+        type: 'line',
+        data: {
+            labels: period,
+            datasets: [{
+                label: 'netDebtToTotalCapital',
+                data: netone,
+                lineTension:0.5,
+                fill:true,
+                borderColor: '#b85e04',
+                backgroundColor:'#ebbd8f'
+               
+            },{
+                label: 'netDebtToTotalEquity',
+                data: nettwo,
+                lineTension:0.5,
+                fill:true,
+                borderColor: '#017a8f',
+                backgroundColor:'#a0dfeb'
+               
+            },
+            {
+                label: 'netMargin',
+                data: netthree,
+                lineTension:0.5,
+                fill:true,
+                borderColor: '#3b0259',
+                backgroundColor:'#c09dd4'
+               
+            }]
+        },
+        options:{
+            maintainAspectRatio: true,
+        responsive:true,
+    scales:{
+        x: {
+            display: false
+        }
+    }
+    }
     });
 }
