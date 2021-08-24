@@ -270,3 +270,11 @@ def basics():
 
     
     return render_template('fundamentals/basics.html',user=current_user)
+
+
+@fundamentals.route('/fundamentals/income-statement/')
+@login_required
+def incomestatement():
+
+    
+    return render_template('fundamentals/income.html',user=current_user)
