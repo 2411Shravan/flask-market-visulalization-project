@@ -14,6 +14,10 @@ requiredIncome.addEventListener('submit',function (e){
     getIncome(res);
 })
 
+
+var fde=[];
+var cor=[];
+
 function getIncome(resi){
     var api='https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol='+resi+'&apikey=WH75LQJ4BD7S15TO'
     fetchIncome(api);
@@ -23,10 +27,19 @@ async function fetchIncome(API){
     const response = await fetch(API);
     const responseData = await response.json();
    // console.log(responseData);
-    sortIncome(responseData);
+    startsortIncome(responseData);
 }
 
-function sortIncome(responses){
-    const{annualReports}=responses;
+function startsortIncome(responses){
+    const{annualReports,quarterlyReports} = responses;
     console.log(annualReports);
+    // console.log(quarterlyReports);
+    sortIncome(annualReports);
+}
+
+function sortIncome(annuals){
+    annuals.forEach(annual=>{
+        // console.log(annual);
+        a
+    })
 }
