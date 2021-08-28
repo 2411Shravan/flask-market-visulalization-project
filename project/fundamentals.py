@@ -222,47 +222,47 @@ def filings():
     return render_template('fundamentals/sec.html',user=current_user)
 
 
-@fundamentals.route('/fundamentals/reported-financials/',methods=['GET','POST'])
-@login_required
-def reports():
-    # swData=[];
-    # bs=[];
-    # cf=[];
-    # ic=[];
-    # if request.method=='POST':
+# @fundamentals.route('/fundamentals/reported-financials/',methods=['GET','POST'])
+# @login_required
+# def reports():
+#     # swData=[];
+#     # bs=[];
+#     # cf=[];
+#     # ic=[];
+#     # if request.method=='POST':
 
-    #     st=request.form['repfin']
-    #     url='https://finnhub.io/api/v1/stock/financials-reported?symbol='+st+'&token=c2vgio2ad3i9mrpv9i2g'
-    #     response=requests.get(url)
-    #     responseData=response.json()
-    #     reqData=responseData['data']
-    #     # pprint(responseData)
-    #     if(len(reqData) == 0):
-    #         message='error in fetching data.Check your code input again'
-    #         return render_template('fundamentals/repFin.html',user=current_user,st=message)
-    #     else:
-    #         for i in reqData:
-    #             sal=i['report']
+#     #     st=request.form['repfin']
+#     #     url='https://finnhub.io/api/v1/stock/financials-reported?symbol='+st+'&token=c2vgio2ad3i9mrpv9i2g'
+#     #     response=requests.get(url)
+#     #     responseData=response.json()
+#     #     reqData=responseData['data']
+#     #     # pprint(responseData)
+#     #     if(len(reqData) == 0):
+#     #         message='error in fetching data.Check your code input again'
+#     #         return render_template('fundamentals/repFin.html',user=current_user,st=message)
+#     #     else:
+#     #         for i in reqData:
+#     #             sal=i['report']
                 
-    #             bas=sal['bs'];
-    #             # caf=j['cf'];
-    #             # ica=j['ic'];
-    #             for k in bas:
-    #                 for gh in k:
+#     #             bas=sal['bs'];
+#     #             # caf=j['cf'];
+#     #             # ica=j['ic'];
+#     #             for k in bas:
+#     #                 for gh in k:
 
-    #                     bs.append(k[gh])
-    #             # for l in caf:
-    #             #     cf.append(l['value'])
-    #             # for m in ica:
-    #             #     ic.append(m['value'])
+#     #                     bs.append(k[gh])
+#     #             # for l in caf:
+#     #             #     cf.append(l['value'])
+#     #             # for m in ica:
+#     #             #     ic.append(m['value'])
                 
 
 
 
-    #     pprint(bs)
-    #     return render_template('fundamentals/repFin.html',user=current_user,st=st)
+#     #     pprint(bs)
+#     #     return render_template('fundamentals/repFin.html',user=current_user,st=st)
     
-    return render_template('fundamentals/repFin.html',user=current_user)
+#     return render_template('fundamentals/repFin.html',user=current_user)
 
 @fundamentals.route('/fundamentals/basic-financials/')
 @login_required
@@ -270,3 +270,11 @@ def basics():
 
     
     return render_template('fundamentals/basics.html',user=current_user)
+
+
+@fundamentals.route('/fundamentals/income-statement/')
+@login_required
+def incomestatement():
+
+    
+    return render_template('fundamentals/income.html',user=current_user)
