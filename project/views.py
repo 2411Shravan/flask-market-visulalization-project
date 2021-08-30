@@ -5,6 +5,8 @@ from flask import Blueprint
 from flask_login import login_required
 from flask_login import current_user
 
+
+
 view=Blueprint('view',__name__)
 
 
@@ -31,7 +33,7 @@ def ShareMarket():
 @view.route('/crypto')
 @login_required
 def Crypto():
-    return render_template('crypto.html',user=current_user)
+    return render_template('crypto/crypto.html',user=current_user)
 
 
 

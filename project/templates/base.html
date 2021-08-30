@@ -11,7 +11,25 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+    <script src="{{url_for('static',filename='js/crypto/exchange.js')}}" defer></script>
+    <script src="{{url_for('static',filename='js/crypto/stats.js')}}" defer></script>
+    <script src="{{url_for('static',filename='js/crypto/cryptoMarket.js')}}" defer></script>
+    <script src="{{url_for('static',filename='js/crypto/intradayData.js')}}" defer></script>
+    <script src="{{url_for('static',filename='js/crypto/cryptoData.js')}}" defer></script>
+    <script src="{{url_for('static',filename='js/crypto/countryData.js')}}" defer></script>
+    <script src="{{url_for('static',filename='js/crypto/allcoins.js')}}" defer></script>
+    <script src="{{url_for('static',filename='js/crypto/history.js')}}" defer></script>
+    <script src="{{url_for('static',filename='js/crypto/groupedData.js')}}" defer></script>
+    <script src="{{url_for('static',filename='js/crypto/openclose.js')}}" defer></script>
+    <script src="{{url_for('static',filename='js/crypto/singlecoin.js')}}" defer></script>
+    <script src="{{url_for('static',filename='js/crypto/closeUnit.js')}}" defer></script>
+    <script src="{{url_for('static',filename='js/crypto/cryptoNews.js')}}" defer></script>
+    <script src="{{url_for('static',filename='js/crypto/weeklyCrypto.js')}}" defer></script>
+    <script src="{{url_for('static',filename='js/crypto/dailyCrypto.js')}}" defer></script>
+    <script src="{{url_for('static',filename='js/crypto/monthly.js')}}" defer></script>
+    <script src="{{url_for('static',filename='js/crypto/cryptoExchange.js')}}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js" integrity="sha512-asxKqQghC1oBShyhiBwA+YgotaSYKxGP1rcSYTDrB0U6DxwlJjU59B67U8+5/++uFjcuVM8Hh5cokLjZlhm3Vg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.27.3/apexcharts.min.js" integrity="sha512-nKTh1Ik8Kzbrxo9A6xOBtEbzdNYcjI4Pr5XE88sNJQk87sY8mBlUfh61lYm0i710r5mGcIZ9tWSwORQbQ4plQQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>{%block title%}{%endblock%}</title>
 </head>
 <body>
@@ -21,6 +39,7 @@
     {%block content%}
 
     {%endblock%}
-
+    <script src="{{url_for('static',filename='js/openclose.js')}}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.27.3/apexcharts.min.js" integrity="sha512-nKTh1Ik8Kzbrxo9A6xOBtEbzdNYcjI4Pr5XE88sNJQk87sY8mBlUfh61lYm0i710r5mGcIZ9tWSwORQbQ4plQQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>

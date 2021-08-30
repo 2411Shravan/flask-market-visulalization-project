@@ -1,0 +1,134 @@
+{%extends 'base.html'%}
+
+
+
+{%block title%}
+    Home
+{%endblock%}
+
+
+
+
+{%block content%}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+        {%if messages %}
+            {%for category,message in messages%}
+                {%if category == "warning" %}
+                <div class="alert text-center alert-warning  alert-dismissable fade show" role="alert">
+                    
+                        {{ message }}
+                   
+                    
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden ="true">&times;</span>
+                    </button>
+                </div>
+                {%else%}
+                <div class="alert text-center alert-success  flex-end alert-dismissable fade show" role="alert">
+                    
+                        {{ message }}
+                   
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden ="true">&times;</span>
+                    </button>
+                </div>
+                {%endif%}
+            {%endfor%}
+        {%endif%}
+    {% endwith %}
+
+
+    <div class="container cryptoIntra" >
+        <form id="getOpenclose" method='POST'>
+            <div class="card">
+                <div class="card-body">
+            <div class="mb-2">
+                <label class="form-label" for="password">Crypto Symbol</label>
+                <input type="text" class="form-control" id="cryptoCoin" placeholder="Enter CryptoSymbol (for ex:ETH,BTC,DOGE,LTC etc)" required>
+            </div>
+            
+            <button type="submit" class="btn btn-dark w-100">Get Data</button>
+            </div>
+        </div>
+        </form>
+        </div>
+
+        
+            <div class="container">
+                    <h4 class="text-center">Open and Close</h4>
+
+                       <div id="chart8"></div>
+
+                <h4 class="text-center">Open Trades</h4>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-6" ><div id="chart4"></div></div>
+                        <div class="col-sm-6"><div id="chart5"></div></div>
+                      </div>
+            
+                      <div class="row">
+                        <div class="col-sm-6" ><div id="chart6"></div></div>
+                        <div class="col-sm-6"><div id="chart7"></div></div>
+                      </div>
+
+
+                    <h4 class="text-center">Closing Trades</h4>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-6" ><div id="chart"></div></div>
+                        <div class="col-sm-6"><div id="chart1"></div></div>
+                      </div>
+            
+                      <div class="row">
+                        <div class="col-sm-6" ><div id="chart2"></div></div>
+                        <div class="col-sm-6"><div id="chart3"></div></div>
+                      </div>
+
+
+                      
+              </div>
+            
+            
+            
+            
+
+        
+        
+
+        <style>
+            .ried{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .raw{
+                    display:flex;
+                    flex-direction:row;
+                }
+            @media(max-width:850px){
+                .raw{
+                    display:flex;
+                    flex-direction:column;
+                }
+            }
+            
+                .cryptoIntra{
+        width:50%;
+        margin-top:150px;
+    }
+    .card{
+        border: 2px solid rgba(128, 128, 128, 0.575);
+    }
+    @media(min-width:550px) and (max-width:850px){
+        .cryptoIntra{
+        width:70%;
+    }
+}
+    @media(max-width:549px){
+        .cryptoIntra{
+        width:80%;
+    }
+    }
+        </style>
+{%endblock%}

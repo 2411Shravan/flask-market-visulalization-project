@@ -1,0 +1,220 @@
+{%extends 'base.html'%}
+
+
+
+{%block title%}
+    Crypto
+{%endblock%}
+
+
+
+
+{%block content%}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+        {%if messages %}
+            {%for category,message in messages%}
+                {%if category == "warning" %}
+                <div class="alert text-center alert-warning  alert-dismissable fade show" role="alert">
+                    
+                        {{ message }}
+                   
+                    
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden ="true">&times;</span>
+                    </button>
+                </div>
+                {%else%}
+                <div class="alert text-center alert-success  flex-end alert-dismissable fade show" role="alert">
+                    
+                        {{ message }}
+                   
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden ="true">&times;</span>
+                    </button>
+                </div>
+                {%endif%}
+            {%endfor%}
+        {%endif%}
+    {% endwith %}
+
+    <div class="container">
+        <div class="container mt-5">
+            <a href="/crypto/country-codes/" class="btn btn-outline-primary">
+                Get Country Codes
+            </a>
+    
+            <a href="/crypto/crypto-codes/" class="btn btn-primary">
+                Get Crypto Codes
+            </a>
+        </div>
+        
+<div class="container mt-5">
+  <div class="row">
+    
+    <div class="col-xs-12 col-sm-4">
+        <a href='/crypto/exchange/' style="text-decoration: none;">
+      <div class="box">
+        <img src="https://img.icons8.com/fluent/160/000000/euro-pound-exchange-1.png"/>
+        <h3 class="text-dark text-center">Get Exchange Rates for Crypto Currencies</h3>
+      </div>
+    </a>
+    </div>
+
+    
+    <div class="col-xs-12 col-sm-4">
+        <a href='/crypto/intraday/five-minutes-delay/' style="text-decoration: none;">
+      <div class="box">
+        <img src="https://img.icons8.com/fluent/160/000000/calendar.png"/>
+        <h3 class="text-dark text-center">Get Intra-Day Data</h3>
+      </div>
+      </a>
+    </div>
+    
+    <div class="col-xs-12 col-sm-4">
+        <a href='/crypto/daily/open-close' style="text-decoration: none;">
+      <div class="box">
+        <img src="../static/images/icons8-open-sign.gif"/>
+        <h3 class="text-dark text-center">Get Daily Open-Close</h3>
+      </div>
+    </a>
+      </div>
+
+      <div class="col-xs-12 col-sm-4">
+        <a href='/crypto/grouped-data' style="text-decoration: none;">
+
+        <div class="box">
+            <img src="https://img.icons8.com/color/160/000000/group-of-projects.png"/>
+          <h3 class="text-dark text-center">Get Grouped Data On Daily Basis</h3>
+        </div>
+        </a>
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+            <a href='/crypto/close-data' style="text-decoration: none;">
+            <div class="box">
+                <img src="../static/images/prev.gif"/>
+              <h3 class="text-dark text-center">Get Previous Close Units/Values</h3>
+            </div>
+        </a>
+            </div>
+
+        <div class="col-xs-12 col-sm-4">
+            <a href='/crypto/globalstats/' style="text-decoration: none;">
+            <div class="box">
+                <img src="https://img.icons8.com/color/160/000000/earth-planet.png"/>
+                <h3 class="text-dark text-center">Get Global Statistics</h3>
+            </div>
+        </a>
+            </div>
+
+        <div class="col-xs-12 col-sm-4">
+            <a href='/crypto/allcoins/' style="text-decoration: none;">
+            <div class="box">
+                <img src="https://img.icons8.com/fluent/160/000000/bitcoin-cryptocurrency.png"/>
+                <h3 class="text-dark text-center">Get Brief On Every Active Crypto Currency</h3>
+            </div>
+        </a>
+            </div>
+            
+        <div class="col-xs-12 col-sm-4">
+            <a href='/crypto/market/' style="text-decoration: none;">
+            <div class="box">
+                <img src="https://img.icons8.com/fluent/160/000000/marketing.png"/>
+                <h3 class="text-dark text-center">Get Top 50 Crypto Markets</h3>
+            </div>
+            </a>
+            </div>
+
+        <div class="col-xs-12 col-sm-4">
+            <a href='/crypto/single-coin/' style="text-decoration: none;">
+            <div class="box">
+                <img src="../static/images/coin.gif"/>
+                <h3 class="text-dark text-center">Get Info On A Specific Crypto</h3>
+            </div>
+        </a>
+            </div>
+
+        <div class="col-xs-12 col-sm-4">
+            <a href='/crypto/exchanges-uuid/' style="text-decoration: none;">
+            <div class="box text-center">
+                
+                <img src="https://img.icons8.com/fluent/160/000000/id-verified.png" />
+                <h3 class="text-dark text-center">Get All Exchanges With Ranks</h3>
+                
+            </div>
+            </a>
+            </div>
+
+        <div class="col-xs-12 col-sm-4">
+            <a href='/crypto/coin-history/' style="text-decoration: none;">
+            <div class="box">
+                <img src="../static/images/history.gif"/>
+                <h3 class="text-dark text-center">Get Your Needed Crypto History</h3>
+            </div>
+            </a>
+            </div>
+
+        <div class="col-xs-12 col-sm-4">
+            <a href='/crypto/news' style="text-decoration: none;">
+            <div class="box">
+                <img src="https://img.icons8.com/cute-clipart/160/000000/news.png"/>
+                <h4 class="text-dark text-center">Get News Related To Crypto Coins/Currencies</h4>
+            </div>
+        </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-4">
+                <a href='/crypto/daily' style="text-decoration: none;">
+                <div class="box">
+                   
+                    <img src="https://img.icons8.com/color/160/000000/calendar-10.png"/>
+                    <h4 class="text-dark text-center">Get Daily Data On Crypto Coins/Currencies</h4>
+                </div>
+            </a>
+                </div>
+
+
+                <div class="col-xs-12 col-sm-4">
+                    <a href='/crypto/weekly' style="text-decoration: none;">
+                    <div class="box">
+                        <img src="https://img.icons8.com/fluency/160/000000/property-time.png"/>
+                        
+                        <h4 class="text-dark text-center">Get Weekly Data On Crypto Coins/Currencies</h4>
+                    </div>
+                </a>
+                    </div>
+
+
+                    <div class="col-xs-12 col-sm-4">
+                        <a href='/crypto/monthly' style="text-decoration: none;">
+                        <div class="box">
+                            <img src="https://img.icons8.com/officel/160/000000/database-daily-export.png"/>
+                            <h4 class="text-dark text-center">Get Montlhy Data On Crypto Coins/Currencies</h4>
+                        </div>
+                    </a>
+                        </div>
+
+    
+    </div>
+  </div>
+</div>
+
+
+    <style>
+        .box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+    color:black;
+    margin: 20px 0;
+    padding: 10px;
+    width: 100%;
+    height: 350px;
+    box-shadow: 1px 2px 8px 2px rgba(0,0,0,0.6); 
+}
+
+
+    </style>
+{%endblock%}
