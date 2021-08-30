@@ -1,0 +1,61 @@
+{%extends 'base.html'%}
+
+
+{%block title %}
+    All-Tickers
+{%endblock %}
+
+
+{%block content%}
+
+    <div class="container ">
+        {%if datas%}
+        {%for data in datas %}
+            {%for dat in data%}
+                <div class="container bg-dark text-white cryptoIntra" style='border-radius:5px;padding-top:10px;padding-bottom:5px;'>
+                    <h6 class="text-center">{{dat['ticker']}}</h6>
+                    <hr style="border:0.6px solid rgb(150, 150, 150)">
+                    <p>Name - {{dat['name']}}</p>
+                    <p>Market - {{dat['market']}}</p>
+                    <p>Locale - {{dat['locale']}}</p>
+                    <p>Exchange - {{dat['primary_exchange']}}</p>
+                    <p>Type - {{dat['type']}}</p>
+                    <p>Currency - {{dat['currency_name']}}</p>
+                    <p>CIKI - {{dat['cik']}}</p>
+                    <p>Composite Figi - {{dat['composite_figi']}}</p>
+                    <p>Share Class Figi - {{dat['share_class_figi']}}</p>
+                    <p class='mb-3'>Updated - {{dat['last_updated_utc']}}</p>
+                </div>
+                
+          
+            {%endfor%}
+        {%endfor%}
+    
+   
+    
+      
+    {%else%}
+      <p>no such data</p>
+    {%endif%}
+    </div>      
+       
+        
+      <style>
+               .cryptoIntra{
+        width:50%;
+        margin-top:50px;
+    }
+   
+    @media(min-width:550px) and (max-width:850px){
+        .cryptoIntra{
+        width:70%;
+    }
+}
+    @media(max-width:549px){
+        .cryptoIntra{
+        width:80%;
+    }
+    }
+      </style>
+   
+{%endblock%}

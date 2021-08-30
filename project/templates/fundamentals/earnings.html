@@ -1,0 +1,172 @@
+{%extends 'base.html'%}
+
+
+{%block title %}
+   Company-Profile
+{%endblock %}
+
+
+{%block content%}
+    <div class="container cryptoIntra">
+        <form method="POST">
+            <label class="form-label" for="formInputExample">Enter Company Code</label>
+            <input type="text" name='earning' class="form-control" id="earning" placeholder="Comp-Code ex:MSFT">
+        </form>
+    </div>
+   {%if message%}
+    {{message}}
+   {%endif%}
+   <div class="container ">
+       <canvas id="chart"></canvas>
+       <canvas class="mt-5" id="charttwo"></canvas>
+       <canvas class="mt-5" id="chartthree"></canvas>
+       <canvas class="mt-5" id="chartfour"></canvas>
+       <canvas class="mt-5" id="chartfive"></canvas>
+   </div>
+        
+        <script>
+            var ctx = document.getElementById('chart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: {{xaxes | safe }},
+                datasets: [{
+                    label: 'Reported EPS',
+                    data: {{yaxes | safe}},
+                    lineTension:0.5,
+                    fill:true,
+                    borderColor: '#013220'
+                   
+                }]
+            },
+            options:{
+        scales:{
+            x: {
+                display: false
+            }
+        }
+    }
+        });
+
+
+        var rel = document.getElementById('charttwo').getContext('2d');
+        var myChart = new Chart(rel, {
+            type: 'line',
+            data: {
+                labels: {{rdate | safe }},
+                datasets: [{
+                    label: 'reportedEPS',
+                    data: {{report | safe}},
+                    lineTension:0.5,
+                    fill:true,
+                    borderColor: '#170454'
+                   
+                }]
+            },
+            options:{
+        scales:{
+            x: {
+                display: false
+            }
+        }
+    }
+        });
+
+        var rele = document.getElementById('chartthree').getContext('2d');
+        var myChart = new Chart(rele, {
+            type: 'line',
+            data: {
+                labels: {{rdate | safe }},
+                datasets: [
+                {
+                    label: 'estimated EPS',
+                    data: {{estimate | safe}},
+                    lineTension:0.5,
+                    fill:true,
+                    borderColor: '#8B0000'
+                   
+                }
+                ]
+            },
+            options:{
+        scales:{
+            x: {
+                display: false
+            }
+        }
+    }
+        });
+
+        var relev = document.getElementById('chartfour').getContext('2d');
+        var myChart = new Chart(relev, {
+            type: 'line',
+            data: {
+                labels: {{rdate | safe }},
+                datasets: [
+                {
+                    label: 'surprisePercentage',
+                    data: {{surprise | safe}},
+                    lineTension:0.5,
+                    fill:true,
+                    borderColor: '#32D4E5'
+                   
+                }
+                ]
+            },
+            options:{
+        scales:{
+            x: {
+                display: false
+            }
+        }
+    }
+        });
+
+        var releva = document.getElementById('chartfive').getContext('2d');
+        var myChart = new Chart(releva, {
+            type: 'line',
+            data: {
+                labels: {{rdate | safe }},
+                datasets: [
+                {
+                    label: 'surprise EPS',
+                    data: {{sur | safe}},
+                    lineTension:0.5,
+                    fill:true,
+                    borderColor: '#FFD919'
+                   
+                }
+                ]
+            },
+            options:{
+        scales:{
+            x: {
+                display: false
+            }
+        }
+    }
+        });
+        </script>
+    
+    <style>
+         .cryptoIntra{
+        width:50%;
+        margin-top:100px;
+    }
+    
+    @media(min-width:550px) and (max-width:850px){
+        .cryptoIntra{
+        width:70%;
+    }
+}
+    @media(max-width:549px){
+        .cryptoIntra{
+        width:80%;
+    }
+   
+    }
+    </style>
+
+
+
+{%endblock%}

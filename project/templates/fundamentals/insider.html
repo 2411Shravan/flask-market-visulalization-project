@@ -1,0 +1,54 @@
+{%extends 'base.html'%}
+
+
+{%block title %}
+   Company-Profile
+{%endblock %}
+
+
+{%block content%}
+    <div class="container cryptoIntra">
+        <form method="POST" id='insiderForm'>
+            <label class="form-label" for="formInputExample">Enter Company Code</label>
+            <input type="text"name='insiderName' class="form-control" id="insiderName" placeholder="Comp-Code ex:MSFT">
+        </form>
+    </div>
+    <div class="container mt-5">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Change</th>
+                <th scope="col">Share</th>
+                <th scope="col">Name</th>
+                <th scope="col">Transaction Price</th>
+              </tr>
+            </thead>
+            <tbody id='tbody'>
+              
+              
+            </tbody>
+          </table>
+    </div>
+   
+        
+    
+    
+    <style>
+         .cryptoIntra{
+        width:50%;
+        margin-top:100px;
+    }
+    
+
+    @media(min-width:550px) and (max-width:850px){
+        .cryptoIntra{
+        width:70%;
+    }
+}
+    @media(max-width:549px){
+        .cryptoIntra{
+        width:80%;
+    }
+    }
+    </style>
+{%endblock%}

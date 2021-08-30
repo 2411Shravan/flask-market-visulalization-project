@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+
+
+{%block title%}
+    Basic-Finance
+{%endblock%}
+
+
+{%block content%}
+<div class="container">
+    <form id="getBasicsFin">
+        <label class="form-label" for="formInputExample">Enter Company/Firm Ticker(Code)</label>
+        <input type="text" name='comp' class="form-control" id="comp" placeholder="Comp-Code ex:MSFT"/>
+        <button type="submit" class="btn btn-dark w-100">Go 🖨 </button>
+    </form>
+</div>
+<h5 class='text-secondary text-center mt-5'>Long Term Datas</h5>
+<div class="container mt-5 do">
+    <canvas id="chart"></canvas>
+
+   
+</div>
+
+<div class="container mt-5">
+    <canvas id="chart1"></canvas>
+</div>
+
+<style>
+    
+</style>
+{%endblock%}

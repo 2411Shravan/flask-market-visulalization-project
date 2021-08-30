@@ -1,0 +1,67 @@
+{%extends 'base.html'%}
+
+
+{%block title %}
+    Stock-Symbol
+{%endblock %}
+
+
+{%block content%}
+<body onload='getStockExchanges()'>
+    
+</body>
+    <div class="container">
+        <div class="container" style='display:flex;align-items: center;justify-content:center'>
+            <span class="loader" id='loader'></span>
+        </div>
+        <table class="table table-striped mt-5">
+            <thead >
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Code</th>
+                <th scope="col">Country</th>
+                
+              </tr>
+            </thead>
+            <tbody id='tableBody'>
+             
+            </tbody>
+          </table>
+    </div>
+
+    <style>
+        
+.loader {
+    display:none;
+  width: 85px;
+  height: 85px;
+  border: 6px solid rgb(34, 34, 34);
+  border-radius: 50%;
+
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #FF3D00;
+  width: 25px;
+  height: 25px;
+  transform: translate(-50%, 50%);
+  border-radius: 50%;
+}
+    
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+    </style>
+{%endblock%}

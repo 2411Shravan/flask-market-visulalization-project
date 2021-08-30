@@ -113,7 +113,7 @@ var options = {
             enabled: true,
             autoScaleYaxis: true
           },legend: {
-              position: 'top'
+              position: 'bottom'
             }
 }
 

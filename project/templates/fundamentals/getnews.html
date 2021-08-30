@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+
+
+{%block title %}
+   Company-Profile
+{%endblock %}
+
+
+{%block content%}
+    <div class="container cryptoIntra">
+        <form method="POST">
+            <label class="form-label" for="formInputExample">Enter Company Code</label>
+            <input type="text"name='companyName' class="form-control" id="formInputExample" placeholder="Comp-Code ex:MSFT">
+        </form>
+    </div>
+   
+        
+    
+    
+    <style>
+         .cryptoIntra{
+        width:50%;
+        margin-top:100px;
+    }
+    
+
+    @media(min-width:550px) and (max-width:850px){
+        .cryptoIntra{
+        width:70%;
+    }
+}
+    @media(max-width:549px){
+        .cryptoIntra{
+        width:80%;
+    }
+    }
+    </style>
+{%endblock%}

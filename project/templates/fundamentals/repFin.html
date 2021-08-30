@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+
+
+    {%block title%}
+        Reported Financials
+    {%endblock%}
+
+
+    {%block content%}
+    <div class="container">
+        <form method="POST">
+            <label class="form-label" for="formInputExample">Enter Company/Firm Ticker(Code)</label>
+            <input type="text" name='repfin' class="form-control" id="repfin" placeholder="Comp-Code ex:MSFT">
+        </form>
+    </div>
+
+    <div class="coontainer">
+        {%if st %}
+        {{ st }}
+        {%endif%}
+    </div>
+    {%endblock%}
