@@ -29,7 +29,9 @@ async function getExchangeData(curDat,coinDat){
     showExchangeData(responseData);
 
 }
-
+function reload(){
+  location.reload();
+}
 function showExchangeData(reData) {
 
     console.log(reData['Realtime Currency Exchange Rate']);
